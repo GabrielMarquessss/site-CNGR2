@@ -1,33 +1,39 @@
-/**
- * Script.js - Adiciona interatividade visual à página Força e Magia
- */
-
+// Espera o conteúdo da página carregar antes de rodar o script
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Seleciona todas as imagens dentro das galerias
-    const images = document.querySelectorAll('.gallery img');
 
-    // Define a classe CSS que será adicionada/removida para o destaque
-    const highlightClass = 'section-highlight';
+    // 1. Selecionar os elementos
+    
+    // Os gatilhos (os títulos <h2> que demos IDs)
+    const dilletTrigger = document.getElementById('play-dillet');
+    const r10Trigger = document.getElementById('play-r10');
 
-    // 2. Itera sobre cada imagem encontrada
-    images.forEach(image => {
-        // Encontra a seção pai mais próxima (hero-section) de cada imagem
-        const parentSection = image.closest('.hero-section');
+    // Os players de áudio (as tags <audio> que demos IDs)
+    const audioDillet = document.getElementById('audio-dillet');
+    const audioR10 = document.getElementById('audio-r10');
 
-        if (parentSection) {
-            // --- Efeito ao entrar com o mouse (mouseover) ---
-            image.addEventListener('mouseover', () => {
-                // Adiciona a classe de destaque à seção pai
-                parentSection.classList.add(highlightClass);
-            });
+    // Lista de todos os áudios para facilitar o controle
+    const allAudios = [audioDillet, audioR10];
 
-            // --- Efeito ao sair com o mouse (mouseout) ---
-            image.addEventListener('mouseout', () => {
-                // Remove a classe de destaque da seção pai
-                parentSection.classList.remove(highlightClass);
-            });
-        }
+    // Função para parar todas as músicas e rebobinar (para não tocar uma por cima da outra)
+    function stopAllAudio() {
+        allAudios.forEach(audio => {
+            audio.pause(); // Pausa a música
+            audio.currentTime = 0; // Volta para o início (segundo 0)
+        });
+    }
+
+    // 2. Adicionar os Eventos de Clique
+
+    // Quando clicar no título do Dillett
+    dilletTrigger.addEventListener('click', () => {
+        stopAllAudio();     // Para qualquer outra música que estiver tocando
+        audioDillet.play(); // Toca a música do Dillett
     });
 
-    console.log("Efeito de destaque de seção carregado. Passe o mouse sobre as imagens!");
+    // Quando clicar no título do Ronaldinho
+    r10Trigger.addEventListener('click', () => {
+        stopAllAudio();   // Para qualquer outra música que estiver tocando
+        audioR10.play();  // Toca a música do R10
+    });
+
 });

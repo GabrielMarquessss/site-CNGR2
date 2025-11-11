@@ -194,3 +194,21 @@ footer {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
     transition: background-color 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
 }
+
+/* --- NOVO (Adição para interatividade) --- */
+
+/* Muda o cursor para "mãozinha" nos títulos clicáveis */
+#play-dillet,
+#play-r10 {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* (Opcional) Efeito de hover para dar mais feedback */
+#play-dillet:hover {
+    color: #FFD700; /* Dourado */
+}
+
+#play-r10:hover {
+    color: #FFD700; /* Dourado */
+}
