@@ -195,20 +195,45 @@ footer {
     transition: background-color 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
 }
 
-/* --- NOVO (Adição para interatividade) --- */
-
-/* Muda o cursor para "mãozinha" nos títulos clicáveis */
+/* --- Feedback de clique nos títulos --- */
 #play-dillet,
 #play-r10 {
     cursor: pointer;
     transition: color 0.3s ease;
 }
 
-/* (Opcional) Efeito de hover para dar mais feedback */
-#play-dillet:hover {
-    color: #FFD700; /* Dourado */
+#play-dillet:hover,
+#play-r10:hover {
+    color: #FFD700;
 }
 
-#play-r10:hover {
-    color: #FFD700; /* Dourado */
+
+/* --- Botão de Parar Música --- */
+#stop-button {
+    display: none; /* Começa escondido */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+    color: #FFD700;
+    border: 2px solid #FFD700;
+    border-radius: 50%; /* Círculo */
+    
+    /* Centraliza o "X" dentro do círculo */
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 38px; /* Ajuste vertical do "X" */
+    
+    cursor: pointer;
+    z-index: 1000; /* Garante que fique por cima de tudo */
+    transition: transform 0.2s ease, background-color 0.2s, color 0.2s;
+}
+
+#stop-button:hover {
+    transform: scale(1.1);
+    background-color: #FFD700; /* Inverte as cores no hover */
+    color: #000;
 }
