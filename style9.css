@@ -234,6 +234,6 @@ footer {
 
 #stop-button:hover {
     transform: scale(1.1);
-    background-color: #ffd701; /* Inverte as cores no hover */
+    background-color: #ffd700; /* Inverte as cores no hover */
     color: #000;
 }
